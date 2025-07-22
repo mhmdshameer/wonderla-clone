@@ -8,7 +8,7 @@ const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarParksDropdown, setSidebarParksDropdown] = useState(false);
   const [sidebarResortsDropdown, setSidebarResortsDropdown] = useState(false);
-
+  const [sidebarLinksDropdown, setSidebarLinksDropdown] = useState(false);
   const navLinks = [
     { name: 'PARK', icon: <FaMapMarkerAlt />, dropdown: true, setter: setParkDropdown, state: parkDropdown, items: ['Kochi', 'Bengaluru', 'Hyderabad'] },
     { name: 'RESORTS', icon: <FaBuilding />, dropdown: true, setter: setResortDropdown, state: resortDropdown, items: ['Bengaluru Resort'] },
@@ -103,6 +103,8 @@ const Navbar = () => {
         setParksDropdown={setSidebarParksDropdown}
         resortsDropdown={sidebarResortsDropdown}
         setResortsDropdown={setSidebarResortsDropdown}
+        LinksDropdown={sidebarLinksDropdown}
+        setLinksDropdown={setSidebarLinksDropdown}
       />
     </>
   );
