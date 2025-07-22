@@ -1,8 +1,14 @@
- /** @type {import('tailwindcss').Config} */
- export default {
-  content: ["./src/**/*.{html,js,jsx}"],
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}", // 👈 scan files in src
+  ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        mulish: ['Mulish', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
-}
+};
