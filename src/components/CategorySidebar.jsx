@@ -3,13 +3,14 @@ import { motion } from "framer-motion";
 import { ReactComponent as KidsIcon } from "../assets/kids.svg";
 import { ReactComponent as LandIcon } from "../assets/land.svg";
 import { ReactComponent as WaterIcon } from "../assets/water.svg";
+import IconicRides from "./IconicRides";
 
 const CategorySidebar = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const categories = [
     { name: "Land", count: "72 Rides", Icon: LandIcon, position: { top: "70px", left: "110px", labelTop: "70px", labelLeft: "245px", countTop: "100px", countLeft: "245px" } },
-    { name: "Water", count: "45 Rides", Icon: WaterIcon, position: { top: "260px", left: "200px", labelTop: "275px", labelLeft: "330px", countTop: "305px", countLeft: "335px" } },
+    { name: "Water", count: "45 Rides", Icon: WaterIcon, position: { top: "260px", left: "200px", labelTop: "275px", labelLeft: "330px", countTop: "305px", countLeft: "330px" } },
     { name: "Kids", count: "30 Rides", Icon: KidsIcon, position: { top: "470px", left: "110px", labelTop: "460px", labelLeft: "245px", countTop: "490px", countLeft: "245px" } },
   ];
   const catPosition = [
@@ -19,7 +20,8 @@ const CategorySidebar = () => {
   ];
 
   return (
-    <div className="relative size-[600px] -ml-[10px] mt-[150px] mx-auto">
+    <div className="flex width-full">
+    <div className="relative size-[600px] -ml-[10px] mt-[150px]">
       {/* Outer Half Donut */}
       <div
         className="absolute top-0 -left-[320px] w-full h-full rounded-full z-0"
@@ -90,6 +92,8 @@ const CategorySidebar = () => {
           );
         })}
       </div>
+    </div>
+    <IconicRides />
     </div>
   );
 };
