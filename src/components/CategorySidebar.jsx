@@ -1,25 +1,28 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import kids from "../assets/kids.svg";
-import land from "../assets/land.svg";
-import water from "../assets/water.svg";
+import { ReactComponent as KidsIcon } from "../assets/kids.svg";
+import { ReactComponent as LandIcon } from "../assets/land.svg";
+import { ReactComponent as WaterIcon } from "../assets/water.svg";
 
 const CategorySidebar = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  // Pre-defined logo positions
-  const logoPositions = [
-    { top: "75px", left: "90px" }, // Land
-    { top: "250px", left: "180px" }, // Water
-    { bottom: "75px", left: "90px" }, // Kids
+  const categories = [
+    { name: "Land", count: "72 Rides", Icon: LandIcon, position: { top: "70px", left: "110px", labelTop: "70px", labelLeft: "245px", countTop: "100px", countLeft: "245px" } },
+    { name: "Water", count: "45 Rides", Icon: WaterIcon, position: { top: "260px", left: "200px", labelTop: "275px", labelLeft: "330px", countTop: "305px", countLeft: "335px" } },
+    { name: "Kids", count: "30 Rides", Icon: KidsIcon, position: { top: "470px", left: "110px", labelTop: "460px", labelLeft: "245px", countTop: "490px", countLeft: "245px" } },
+  ];
+  const catPosition = [
+    { position: { top: "20px", left: "60px" } }  ,
+    { position: { top: "220px", left: "150px" } },
+    { position: { top: "420px", left: "55px" } },
   ];
 
-
   return (
-    <div className="relative size-[600px] mt-[150px]">
+    <div className="relative size-[600px] -ml-[10px] mt-[150px] mx-auto">
       {/* Outer Half Donut */}
       <div
-        className="absolute top-0 -left-[350px] w-full h-full rounded-full z-0"
+        className="absolute top-0 -left-[320px] w-full h-full rounded-full z-0"
         style={{
           background: `conic-gradient(
             from 0deg,
@@ -33,59 +36,60 @@ const CategorySidebar = () => {
       />
 
       {/* Inner circle (donut hole) */}
-      <div className="absolute top-[90px] -left-[250px] size-[420px] bg-[rgb(34,48,74)] rounded-full z-1" />
+      <div className="absolute top-[90px] -left-[230px] size-[420px] bg-[rgb(34,48,74)] rounded-full z-1" />
 
-      {/* Logo Buttons */}
-      <div className="absolute w-full h-full z-10">
-        <button
-          onClick={() => setSelectedIndex(0)}
-          className="absolute w-[60px] h-[60px] text-[rgb(51,77,207)]"
-          style={{ top: "75px", left: "90px" }}
-        >
-          <img
-            src={land}
-            alt="Land"
-            className="w-full h-full object-contain"
-          />
-        </button>
-
-        <button
-          onClick={() => setSelectedIndex(1)}
-          className="absolute w-[60px] h-[60px] text-[rgb(51,77,207)]"
-          style={{ top: "250px", left: "180px" }}
-        >
-          <img
-            src={water}
-            alt="Water"
-            className="w-full h-full object-contain"
-          />
-        </button>
-
-        <button
-          onClick={() => setSelectedIndex(2)}
-          className="absolute w-[60px] h-[60px] text-[rgb(51,77,207)]"
-          style={{ bottom: "75px", left: "90px" }}
-        >
-          <img
-            src={kids}
-            alt="Kids"
-            className="w-full h-full object-contain"
-          />
-        </button>
-      </div>
-
-      {/* Selector (yellow outer + white inner) */}
+      {/* Selector Circle */}
       <motion.div
-        className="absolute w-[150px] h-[150px] rounded-full bg-[rgb(250,214,0)] flex items-center justify-center z-20"
+        className="absolute w-[160px] h-[160px] rounded-full border-[10px] bg-white border-[rgb(250,214,0)] z-10"
         animate={{
-          top: logoPositions[selectedIndex].top,
-          left: logoPositions[selectedIndex].left,
-          right: logoPositions[selectedIndex].right || "auto",
+          top: catPosition[selectedIndex].position.top,
+          left: catPosition[selectedIndex].position.left,
         }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-      >
-        <div className="w-[120px] h-[120px] bg-white rounded-full" />
-      </motion.div>
+      />
+
+      {/* Icons + Labels */}
+      <div className="absolute w-full h-full z-20">
+        {categories.map((cat, i) => {
+          const Icon = cat.Icon;
+          const isActive = selectedIndex === i;
+
+          return (
+            <React.Fragment key={cat.name}>
+              <button
+                onClick={() => setSelectedIndex(i)}
+                className={`absolute w-[60px] h-[60px] transition-all duration-300 ${
+                  isActive ? "scale-125" : ""
+                }`}
+                style={{
+                  top: cat.position.top,
+                  left: cat.position.left,
+                }}
+              >
+                <Icon
+                  className="w-full h-full fill-[#334DCF]"
+                />
+              </button>
+
+              {/* Label */}
+              <div className="flex flex-col items-center font-mulish">
+              <span className="absolute text-white text-xl"
+                style={{
+                  top: cat.position.labelTop,
+                  left: cat.position.labelLeft,
+                }}>{cat.name}</span>
+                
+                <span className="absolute bg-blue-400 text-white text-sm rounded-full px-3"
+                style={{
+                  top: cat.position.countTop,
+                  left: cat.position.countLeft,
+                }}
+                >{cat.count}</span>
+              </div>
+            </React.Fragment>
+          );
+        })}
+      </div>
     </div>
   );
 };
