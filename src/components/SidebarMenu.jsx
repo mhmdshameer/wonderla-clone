@@ -27,7 +27,7 @@ const SidebarMenu = ({ open, onClose, parksDropdown, setParksDropdown, resortsDr
         <FaTimes className="text-base" />
       </button>
     </div>
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-y-auto h-[calc(100vh-96px)] scrollbar-hide">
       {/* Parks Dropdown */}
       <div>
         <div className="px-6 py-2.5">
@@ -157,14 +157,29 @@ const SidebarMenu = ({ open, onClose, parksDropdown, setParksDropdown, resortsDr
           </button>
           {LinksDropdown && (
             <div className="pl-12 pt-2">
-              <a href="#" className="block py-1 text-gray-600 text-sm">Restaurants</a>
-              <a href="#" className="block py-1 text-gray-600 text-sm">Merchandise</a>
-              <a href="#" className="block py-1 text-gray-600 text-sm">Events</a>
+              <a href="#" className="block text-sm">Restaurants</a>
+              <a href="#" className="block text-sm">Merchandise</a>
+              <a href="#" className="block text-sm">Events</a>
             </div>
           )}
         </div>
-        {/* Separator under Parks */}
-        <div className="px-6"><div className="border-t border-gray-200 w-full"></div></div>
+        <div className="px-6 mb-[40px]"><div className="border-t border-gray-200 w-full"></div></div>
+        {/* Contact Us */}
+        <div>
+        <div className="px-6 py-2.5">
+          <a href="https://www.wonderla.com/contact-us" target="_blank" rel="noopener noreferrer">
+          <div className="flex items-center gap-4">
+            <img src="https://d22pimhl2qmbj7.cloudfront.net/public/support_1_f316ee7cce.svg?w=48&q=75" alt="Contact Us" className="w-8 h-8" />
+            <div className="text-left">
+              <h3 className="font-medium font-mulish text-xl capitalize">Contact Us</h3>
+              <div className="text-xs text-gray-500">Get in touch wonderla team</div>
+            </div>
+          </div>
+          </a>
+        </div>
+        {/* Separator under Contact Us */}
+        <div className="px-6 mb-20"><div className="border-t border-gray-200 w-full"></div></div>
+      </div>
       </div>
     </div>
   </div>
