@@ -7,7 +7,7 @@ const FooterSlider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (scrollRef.current) {
-        scrollRef.current.scrollLeft += 3;
+        scrollRef.current.scrollLeft += 2;
         if (
           scrollRef.current.scrollLeft >=
           scrollRef.current.scrollWidth - scrollRef.current.clientWidth
