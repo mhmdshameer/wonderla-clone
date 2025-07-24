@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import footerData from "../data/footer";
 
 const FooterSlider = () => {

@@ -1,6 +1,39 @@
-# Getting Started with Create React App
+#  Wonderla Rides Section Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React + Tailwind CSS implementation of Wonderla's ride section UI — built as part of a frontend assignment.
+
+---
+
+## 📸 Preview
+
+![Preview Image](./public/preview.png)
+
+
+---
+
+## Features
+
+- Ride Category Selector (Land, Water, Kids)
+- Ride Cards with looping background video and gradient overlay
+- Horizontal Carousel with manual + auto scroll
+- Smooth animations using Framer Motion
+- Modular components (`IconicRides`, `CategorySidebar`, `CarouselControls`, etc.)
+- Ride data loaded from local JSON
+- Built with ReactJS & TailwindCSS
+
+---
+
+## Tech Stack
+
+- ReactJS
+- Tailwind CSS
+- Framer Motion
+- ES6, JSX
+
+## Install Dependencies
+
+### `npm install`
+
 
 ## Available Scripts
 

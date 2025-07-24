@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import rides from "../data/rides";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 

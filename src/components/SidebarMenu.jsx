@@ -1,4 +1,3 @@
-import React from "react";
 import { FaChevronDown, FaChevronUp, FaTimes } from 'react-icons/fa';
 
 const icons = {
