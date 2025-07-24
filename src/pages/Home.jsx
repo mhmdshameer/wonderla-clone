@@ -1,4 +1,5 @@
 import CategorySidebar from '../components/CategorySidebar'
+import FooterSlider from '../components/FooterSlider'
 import Navbar from '../components/Navbar'
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <div>
         <Navbar/>
         <CategorySidebar onSelect={(category) => console.log(category)}/>
+        <FooterSlider/>
   </div>
   )
 }
