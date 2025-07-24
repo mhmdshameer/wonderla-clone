@@ -62,7 +62,7 @@ const CategorySidebar = () => {
   ];
 
   return (
-    <div className="flex items-start gap-10 px-10 mt-[150px]">
+    <div className="flex items-start gap-10 pl-10 mt-[150px]">
       {/* Donut Section */}
       <div className="relative w-[600px] h-[600px] shrink-0">
         {/* Outer Half Donut */}
@@ -143,9 +143,9 @@ const CategorySidebar = () => {
       </div>
 
       {/* Iconic Rides Section */}
-      <div className="flex-1">
+    
         <IconicRides currentCategory={category} />
-      </div>
+
     </div>
   );
 };
