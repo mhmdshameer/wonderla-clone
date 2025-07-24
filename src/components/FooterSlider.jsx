@@ -15,7 +15,7 @@ const FooterSlider = () => {
           scrollRef.current.scrollLeft = 0;
         }
       }
-    }, 10);
+    }, 20);
 
     return () => clearInterval(interval);
   }, []);
